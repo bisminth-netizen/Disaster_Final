@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Exam Study Guide – EO Science &amp; Spatial Referencing</title>
+<style>
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d2e;
+  --surface2: #232640;
+  --border: #2e3158;
+  --accent: #6c63ff;
+  --accent2: #ff6584;
+  --accent3: #43e97b;
+  --accent4: #f7971e;
+  --text: #e8eaf6;
+  --text2: #9fa8da;
+  --hot: #ff4757;
+  --warm: #ffa502;
+  --tip: #2ed573;
+  --card-shadow: 0 4px 24px rgba(108,99,255,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; }
+
+/* HEADER */
+.hero {
+  background: linear-gradient(135deg, #1a1d2e 0%, #232640 50%, #1a1d2e 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 20px 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,0.18) 0%, transparent 70%);
+}
+.hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, #6c63ff, #ff6584, #43e97b);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+.hero p { color: var(--text2); margin-top: 8px; font-size: 1rem; position: relative; }
+.badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; position: relative; }
+.badge {
+  padding: 4px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; letter-spacing: .5px;
+  border: 1px solid;
+}
+.badge-purple { background: rgba(108,99,255,.15); border-color: var(--accent); color: var(--accent); }
+.badge-red { background: rgba(255,71,87,.15); border-color: var(--hot); color: var(--hot); }
+.badge-green { background: rgba(67,233,123,.15); border-color: var(--tip); color: var(--tip); }
+
+/* NAV */
+.nav { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.nav-inner { display: flex; overflow-x: auto; padding: 0 12px; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-btn {
+  background: none; border: none; color: var(--text2); padding: 14px 20px; cursor: pointer;
+  font-size: 0.88rem; font-weight: 600; white-space: nowrap; border-bottom: 2px solid transparent;
+  transition: all .2s; letter-spacing: .3px;
+}
+.nav-btn:hover { color: var(--text); }
+.nav-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* MAIN */
+.main { max-width: 960px; margin: 0 auto; padding: 32px 16px 80px; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* SECTION */
+.section { margin-bottom: 28px; }
+.section-title {
+  font-size: 1.25rem; font-weight: 700; color: var(--text);
+  margin-bottom: 16px; padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+.section-title .icon { font-size: 1.4rem; }
+
+/* CARD */
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px 24px; margin-bottom: 16px; box-shadow: var(--card-shadow);
+}
+.card-title {
+  font-size: 1rem; font-weight: 700; margin-bottom: 10px;
+  color: var(--accent);
+}
+
+/* HOT TOPIC */
+.hot-card {
+  background: linear-gradient(135deg, rgba(255,71,87,.08), rgba(255,165,2,.06));
+  border: 1px solid rgba(255,71,87,.35);
+  border-radius: 12px; padding: 18px 22px; margin-bottom: 14px;
+  position: relative;
+}
+.hot-badge {
+  position: absolute; top: -1px; right: 14px;
+  background: var(--hot); color: white; font-size: 0.68rem; font-weight: 700;
+  padding: 2px 10px; border-radius: 0 0 8px 8px; letter-spacing: 1px;
+}
+.hot-card .card-title { color: var(--hot); }
+
+/* MEMORY TIP */
+.tip-box {
+  background: rgba(67,233,123,.08); border: 1px solid rgba(67,233,123,.3);
+  border-radius: 8px; padding: 12px 16px; margin-top: 12px;
+  font-size: 0.88rem; color: var(--tip);
+}
+.tip-box strong { color: #6effa0; }
+
+/* EXAM TRICK */
+.trick-box {
+  background: rgba(247,151,30,.08); border: 1px solid rgba(247,151,30,.3);
+  border-radius: 8px; padding: 12px 16px; margin-top: 10px;
+  font-size: 0.88rem; color: var(--accent4);
+}
+.trick-box strong { color: #ffc048; }
+
+/* TABLE */
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 10px; }
+th { background: var(--surface2); color: var(--accent); padding: 10px 12px; text-align: left; font-size: 0.82rem; letter-spacing: .5px; }
+td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--text2); }
+tr:hover td { background: rgba(108,99,255,.06); color: var(--text); }
+
+/* FORMULA */
+.formula {
+  background: var(--surface2); border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0; padding: 12px 18px; margin: 12px 0;
+  font-family: 'Courier New', monospace; font-size: 1.05rem; color: #c5caf5;
+  letter-spacing: .5px;
+}
+
+/* Q&A */
+.qa-item { margin-bottom: 12px; }
+.qa-header {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px 18px; cursor: pointer; display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 10px; transition: border-color .2s;
+}
+.qa-header:hover { border-color: var(--accent); }
+.qa-header.open { border-color: var(--accent); border-radius: 10px 10px 0 0; border-bottom-color: transparent; }
+.qa-num { background: var(--accent); color: white; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
+.qa-q { font-weight: 600; font-size: 0.94rem; flex: 1; }
+.qa-arrow { transition: transform .25s; flex-shrink: 0; color: var(--text2); }
+.qa-header.open .qa-arrow { transform: rotate(180deg); }
+.qa-body {
+  display: none; background: var(--surface2); border: 1px solid var(--accent);
+  border-top: none; border-radius: 0 0 10px 10px; padding: 18px 20px;
+}
+.qa-body.show { display: block; }
+.qa-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; color: var(--text2); margin-bottom: 6px; }
+.qa-answer { font-size: 0.9rem; color: var(--text); margin-bottom: 14px; line-height: 1.75; }
+.qa-explain { font-size: 0.87rem; color: var(--text2); margin-bottom: 12px; }
+.qa-topic { display: inline-block; background: rgba(108,99,255,.2); color: var(--accent); border-radius: 4px; padding: 2px 8px; font-size: 0.72rem; font-weight: 600; margin-bottom: 10px; }
+.qa-hot { display: inline-block; background: rgba(255,71,87,.2); color: var(--hot); border-radius: 4px; padding: 2px 8px; font-size: 0.72rem; font-weight: 600; margin-bottom: 10px; margin-left: 6px; }
+
+/* QUICK REF */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media(max-width:600px) { .grid2 { grid-template-columns: 1fr; } }
+.ref-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px; font-size: 0.85rem;
+}
+.ref-card h4 { color: var(--accent2); margin-bottom: 8px; font-size: 0.9rem; }
+.ref-card ul { list-style: none; }
+.ref-card ul li { padding: 3px 0; color: var(--text2); }
+.ref-card ul li::before { content: '→ '; color: var(--accent); }
+
+/* HIGHLIGHT */
+.hl { background: rgba(255,213,0,.12); padding: 1px 4px; border-radius: 3px; color: #ffe066; }
+.hl-red { background: rgba(255,71,87,.15); color: #ff7f8e; padding: 1px 4px; border-radius: 3px; }
+.hl-green { background: rgba(67,233,123,.12); color: #6effa0; padding: 1px 4px; border-radius: 3px; }
+
+/* PROGRESS */
+.progress-bar-wrap { background: var(--surface2); border-radius: 20px; height: 6px; margin: 20px 0 6px; }
+.progress-bar { height: 100%; border-radius: 20px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width .4s; }
+.progress-label { font-size: 0.8rem; color: var(--text2); text-align: right; }
+
+/* LIST */
+ul.styled { list-style: none; padding: 0; }
+ul.styled li { padding: 5px 0 5px 20px; position: relative; font-size: 0.9rem; color: var(--text2); }
+ul.styled li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+ul.styled li strong { color: var(--text); }
+
+/* SEARCH */
+.search-wrap { position: relative; margin-bottom: 20px; }
+.search-input {
+  width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text); padding: 11px 18px 11px 42px; font-size: 0.9rem; outline: none;
+  transition: border-color .2s;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text2); }
+
+/* DIVIDER */
+.divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+/* OVERVIEW STATS */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 12px; margin-bottom: 24px; }
+.stat-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px; text-align: center;
+}
+.stat-num { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.stat-label { font-size: 0.78rem; color: var(--text2); margin-top: 4px; font-weight: 600; letter-spacing: .3px; }
+
+/* Scrolltop */
+.scroll-top {
+  position: fixed; bottom: 24px; right: 20px;
+  background: var(--accent); color: white; border: none; border-radius: 50%;
+  width: 44px; height: 44px; font-size: 1.3rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(108,99,255,.4); transition: opacity .2s;
+  opacity: 0; pointer-events: none;
+}
+.scroll-top.visible { opacity: 1; pointer-events: all; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📡 Final Exam Study Guide</h1>
+  <p>EO Science for DRM &amp; Spatial Referencing — Short Questions, Narrative Answers</p>
+  <div class="badges">
+    <span class="badge badge-purple">Lecture 1: EO &amp; DRM</span>
+    <span class="badge badge-purple">Lecture 3: Spatial Referencing</span>
+    <span class="badge badge-red">🔥 Exam Hot Topics Highlighted</span>
+    <span class="badge badge-green">30 Practice Questions</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showTab('overview')">🏠 Overview</button>
+    <button class="nav-btn" onclick="showTab('lec1')">📚 Lecture 1: DRM</button>
+    <button class="nav-btn" onclick="showTab('lec3')">🌍 Lecture 3: Spatial</button>
+    <button class="nav-btn" onclick="showTab('questions')">📝 30 Practice Q&amp;A</button>
+    <button class="nav-btn" onclick="showTab('quickref')">⚡ Quick Reference</button>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- ===================== OVERVIEW ===================== -->
+<div id="tab-overview" class="tab-panel active">
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">Lectures Covered</div></div>
+    <div class="stat-card"><div class="stat-num">30</div><div class="stat-label">Practice Questions</div></div>
+    <div class="stat-card"><div class="stat-num">🔥 12</div><div class="stat-label">Hot Exam Topics</div></div>
+    <div class="stat-card"><div class="stat-num">✅</div><div class="stat-label">Memory Tricks Included</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📋 Exam Format Guide</div>
+    <p style="color:var(--text2); font-size:.9rem; margin-bottom:12px;">
+      Format: <strong style="color:var(--text)">Short questions, Narrative answers</strong> — You must write structured, explanatory prose. Not bullet points. Show understanding, not just recall.
+    </p>
+    <div class="trick-box">
+      <strong>🎯 Exam Strategy:</strong> For each answer: (1) Define the key term, (2) Explain why it matters, (3) Give a short example or formula if applicable. Aim for 3–5 sentences per answer.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="icon">🔥</span>Top Exam Topics – Must Know</div>
+
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">1. Natural Disaster Definition (UNDRR 2016 + IPCC AR6)</div>
+      <p style="font-size:.88rem;color:var(--text2)">Both definitions + 3 key elements + difference between UNDRR and IPCC framing</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">2. Risk Formula: R = H × Exposure × Vulnerability</div>
+      <p style="font-size:.88rem;color:var(--text2)">Know each variable, formula variants, and how reducing any component reduces risk</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">3. HFA vs SFDRR Comparison</div>
+      <p style="font-size:.88rem;color:var(--text2)">Dates, priorities, key differences (reactive vs proactive, 5 vs 4 priorities)</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">4. PAR Model (Pressure and Release)</div>
+      <p style="font-size:.88rem;color:var(--text2)">Root Causes → Dynamic Pressures → Unsafe Conditions ← Hazards = Disaster</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">5. Geoid vs Ellipsoid</div>
+      <p style="font-size:.88rem;color:var(--text2)">Definition of each, what heights they measure, Geoid separation N = h − H</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">6. Satellite Positioning – Why 4 Satellites?</div>
+      <p style="font-size:.88rem;color:var(--text2)">3 for position (x,y,z) + 1 to correct receiver clock bias → 4 unknowns need 4 equations</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">7. Types of Hazards in Multi-Disaster Context (6 types)</div>
+      <p style="font-size:.88rem;color:var(--text2)">Parallel, Cascading, Disposition Alteration, Additional Hazard Potential, Coincident Triggering, Cyclic Triggering</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">8. Remote Sensing Definition</div>
+      <p style="font-size:.88rem;color:var(--text2)">"The art, science, and technology of observing an object, scene, or phenomenon by instrument-based techniques at a distance"</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">9. Disaster Management Cycle</div>
+      <p style="font-size:.88rem;color:var(--text2)">Preparedness → Response → Recovery → Mitigation (and role of EO in each phase)</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">10. WGS84 Parameters</div>
+      <p style="font-size:.88rem;color:var(--text2)">a = 6,378,137 m; b = 6,356,752 m; f = 1/298.257 — global ellipsoid used by GPS/GNSS</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">11. GAR 2022 Key Statistics</div>
+      <p style="font-size:.88rem;color:var(--text2)">7,348 disasters, ~1.23M deaths, 4.2B affected, $2.97 trillion losses (2000–2019); 91% deaths in developing countries</p>
+    </div>
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">12. Orthometric Height (H) vs Ellipsoidal Height (h)</div>
+      <p style="font-size:.88rem;color:var(--text2)">H = above geoid (physical, what GPS gives after correction); h = above ellipsoid (geometric); N = h − H</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== LECTURE 1 ===================== -->
+<div id="tab-lec1" class="tab-panel">
+  <div class="section-title"><span class="icon">📚</span>Lecture 1: EO Science for Disaster Risk Management</div>
+
+  <!-- DRM Frameworks -->
+  <div class="section">
+    <div class="card">
+      <div class="card-title">📌 Disaster Management Cycle</div>
+      <p style="font-size:.88rem;color:var(--text2);margin-bottom:12px;">A continuous, iterative cycle — each phase feeds the next.</p>
+      <table>
+        <tr><th>Phase</th><th>Key Activities</th><th>EO Role</th></tr>
+        <tr><td><span class="hl-green">Preparedness</span></td><td>Planning, training, early warning systems</td><td>Risk mapping, vulnerability assessment</td></tr>
+        <tr><td><span class="hl-red">Response</span></td><td>Search &amp; rescue, emergency relief</td><td>Rapid damage assessment, situational awareness</td></tr>
+        <tr><td><span class="hl">Recovery</span></td><td>Reconstruction, rehabilitation</td><td>Change detection, monitoring rebuilding</td></tr>
+        <tr><td><span class="hl-green">Mitigation</span></td><td>Reduce future risk, land use planning</td><td>Hazard mapping, exposure analysis</td></tr>
+      </table>
+      <div class="tip-box"><strong>🧠 Memory Trick:</strong> "Pretty Roses Rarely Manage" → <strong>P</strong>reparedness, <strong>R</strong>esponse, <strong>R</strong>ecovery, <strong>M</strong>itigation</div>
+    </div>
+
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">Natural Disaster – Definition (UNDRR 2016)</div>
+      <p style="font-size:.88rem;color:var(--text2);">A serious <strong style="color:var(--text)">disruption of functioning</strong> of a community or society, causing widespread <strong style="color:var(--text)">human, material, economic, or environmental losses</strong> that <strong style="color:var(--text)">exceed the ability of the affected community to cope</strong> using its own resources.</p>
+      <p style="font-size:.85rem;color:var(--text2);margin-top:10px;"><strong style="color:var(--accent4)">3 Elements:</strong> (1) Disruption of functioning, (2) Impact (losses), (3) Overwhelmed capacity</p>
+      <hr style="border-color:var(--border);margin:12px 0;">
+      <div class="card-title">IPCC AR6 Definition (2022)</div>
+      <p style="font-size:.88rem;color:var(--text2);">Emphasizes the <strong style="color:var(--text)">interaction of hazard × vulnerability</strong> — a disaster results from the combination of a hazardous event and conditions of vulnerability that together result in significant disruptions.</p>
+      <div class="tip-box"><strong>🧠 Key Difference:</strong> UNDRR = capacity-centric (overwhelmed capacity). IPCC = process-centric (hazard × vulnerability interaction).</div>
+    </div>
+
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">HFA (2005–2015) vs SFDRR (2015–2030)</div>
+      <table>
+        <tr><th>Feature</th><th>HFA (Hyogo Framework)</th><th>SFDRR (Sendai Framework)</th></tr>
+        <tr><td>Period</td><td>2005–2015</td><td>2015–2030</td></tr>
+        <tr><td>Priorities</td><td>5 priorities</td><td>4 priorities</td></tr>
+        <tr><td>Approach</td><td>Reactive (reducing existing risk)</td><td>Proactive (preventing new + reducing existing)</td></tr>
+        <tr><td>Scope</td><td>Natural hazards focus</td><td>All hazards (natural + man-made)</td></tr>
+        <tr><td>Actors</td><td>Government-led</td><td>Broader: private sector, science, civil society</td></tr>
+        <tr><td>Monitoring</td><td>Weak monitoring</td><td>7 global targets + indicators</td></tr>
+      </table>
+      <p style="font-size:.85rem;color:var(--accent4);margin-top:10px;"><strong>HFA 5 Priorities:</strong> (1) DRR as national priority, (2) Identify risks &amp; early warning, (3) Knowledge &amp; education, (4) Reduce underlying risk factors, (5) Strengthen preparedness</p>
+      <p style="font-size:.85rem;color:var(--accent4);margin-top:8px;"><strong>SFDRR 4 Priorities:</strong> (1) Understanding disaster risk, (2) Strengthening governance, (3) Investing in DRR, (4) Enhancing preparedness for effective response &amp; "Build Back Better"</p>
+      <div class="tip-box"><strong>🧠 Memory:</strong> HFA = "5 Priorities, Reactive, Government" | SFDRR = "4 Priorities, Proactive, Everyone" | SFDRR adds "Build Back Better"</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🌡️ Paris Agreement (COP21, 2015)</div>
+      <ul class="styled">
+        <li>Limit global temperature rise to <strong>well below 2°C</strong> above pre-industrial levels</li>
+        <li>Pursue efforts to limit to <strong>1.5°C</strong></li>
+        <li>Countries submit <strong>NDCs (Nationally Determined Contributions)</strong> every 5 years</li>
+        <li>Developed nations provide <strong>$100 billion/year</strong> climate finance to developing nations</li>
+      </ul>
+      <div class="tip-box"><strong>🧠 Remember:</strong> 2°C ceiling, 1.5°C aim, 5-year NDC cycle, $100B/yr finance</div>
+    </div>
+
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">GAR 2022 – Key Global Disaster Statistics (2000–2019)</div>
+      <ul class="styled">
+        <li><strong>7,348</strong> natural disasters recorded</li>
+        <li><strong>~1.23 million</strong> deaths</li>
+        <li><strong>4.2 billion</strong> people affected (many counted multiple times)</li>
+        <li><strong>USD 2.97 trillion</strong> in economic losses</li>
+        <li>Average cost (2015–2021): <strong>$330 billion/year</strong></li>
+        <li><strong>91% of deaths</strong> occurred in developing countries</li>
+        <li>Every <strong>$1 invested in DRR</strong> saves <strong>$5–10</strong> in future losses</li>
+      </ul>
+      <div class="trick-box"><strong>🎯 Exam Trick:</strong> The examiner may ask "What does GAR 2022 reveal about disaster patterns?" Answer: Geography of death (91% developing countries), economic inequality, and cost-effectiveness of prevention.</div>
+    </div>
+  </div>
+
+  <!-- Risk -->
+  <div class="section">
+    <div class="section-title"><span class="icon">⚠️</span>Risk, Hazard &amp; Vulnerability</div>
+
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">Risk Formula</div>
+      <div class="formula">Risk (R) = Hazard (H) × Exposure (Ex) × Vulnerability (V)</div>
+      <p style="font-size:.88rem;color:var(--text2);margin-bottom:10px;">Sometimes written as: <span class="hl">R = (H + Ex × V)</span> depending on context</p>
+      <table>
+        <tr><th>Component</th><th>Definition</th><th>Example</th></tr>
+        <tr><td><strong>Hazard (H)</strong></td><td>Potentially damaging physical event or phenomenon</td><td>Earthquake, flood, cyclone</td></tr>
+        <tr><td><strong>Exposure (Ex)</strong></td><td>People, assets, systems in hazard zones</td><td>Population in floodplain</td></tr>
+        <tr><td><strong>Vulnerability (V)</strong></td><td>Susceptibility to harm; lack of capacity to resist/recover</td><td>Poor housing, low income</td></tr>
+      </table>
+      <div class="tip-box"><strong>🧠 Memory:</strong> "Risk = HEV" like Hazard Exposure Vulnerability. Reducing ANY one reduces risk. A hazard without exposure = no disaster. Exposure without vulnerability = manageable.</div>
+    </div>
+
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">PAR Model – Pressure and Release</div>
+      <p style="font-size:.88rem;color:var(--text2);margin-bottom:10px;">Shows how social conditions "pressure" people into unsafe situations that combine with hazards to create disasters.</p>
+      <div class="formula">Root Causes → Dynamic Pressures → Unsafe Conditions ← Hazards = DISASTER</div>
+      <table>
+        <tr><th>Level</th><th>Examples</th></tr>
+        <tr><td><strong>Root Causes</strong></td><td>Poverty, inequality, lack of resources, political power structures</td></tr>
+        <tr><td><strong>Dynamic Pressures</strong></td><td>Rapid urbanization, population growth, lack of education</td></tr>
+        <tr><td><strong>Unsafe Conditions</strong></td><td>Fragile housing, dangerous locations, weak institutions</td></tr>
+      </table>
+      <p style="font-size:.85rem;color:var(--accent4);margin-top:10px;"><strong>Release:</strong> To reduce disaster risk, you "release the pressure" by addressing root causes.</p>
+      <div class="tip-box"><strong>🧠 Memory:</strong> PAR = "Poverty And Roots" create pressure → unsafe conditions + hazard = disaster. Think of a pressure cooker releasing steam.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">⚡ 6 Types of Hazards in Multi-Disaster Contexts</div>
+      <table>
+        <tr><th>#</th><th>Type</th><th>Description &amp; Example</th></tr>
+        <tr><td>1</td><td><strong>Parallel</strong></td><td>Two independent hazards occur simultaneously (e.g., earthquake + volcanic eruption in different areas)</td></tr>
+        <tr><td>2</td><td><strong>Cascading</strong></td><td>One hazard triggers another in chain (e.g., earthquake → tsunami → flooding)</td></tr>
+        <tr><td>3</td><td><strong>Disposition Alteration</strong></td><td>First hazard changes the environment, increasing vulnerability to next (e.g., deforestation from drought → landslide)</td></tr>
+        <tr><td>4</td><td><strong>Additional Hazard Potential</strong></td><td>First hazard creates new hazard possibility (e.g., dam failure after earthquake)</td></tr>
+        <tr><td>5</td><td><strong>Coincident Triggering</strong></td><td>Two hazards combine to trigger a third (e.g., rain + earthquake = landslide)</td></tr>
+        <tr><td>6</td><td><strong>Cyclic Triggering</strong></td><td>Hazards follow predictable seasonal/cyclical pattern (e.g., annual monsoon flooding)</td></tr>
+      </table>
+      <div class="tip-box"><strong>🧠 Memory:</strong> "PC-DA-CC" → <strong>P</strong>arallel, <strong>C</strong>ascading, <strong>D</strong>isposition, <strong>A</strong>dditional, <strong>C</strong>oincident, <strong>C</strong>yclic</div>
+    </div>
+  </div>
+
+  <!-- Remote Sensing -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🛰️</span>Remote Sensing &amp; EO in DRM</div>
+
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">Remote Sensing – Definition</div>
+      <p style="font-size:.9rem;color:var(--text);font-style:italic;margin-bottom:10px;">
+        "The art, science, and technology of observing an object, scene, or phenomenon by instrument-based techniques from a distance, without physical contact."
+      </p>
+      <ul class="styled">
+        <li><strong>Information carrier:</strong> Electromagnetic radiation (EMR)</li>
+        <li><strong>Passive sensors:</strong> Detect reflected sunlight (optical: Sentinel-2, Landsat)</li>
+        <li><strong>Active sensors:</strong> Emit own energy (SAR: Sentinel-1, LiDAR)</li>
+      </ul>
+      <div class="trick-box"><strong>🎯 Exam Trick:</strong> If asked "why use active sensors in disasters?" → SAR works day/night, through clouds/smoke — critical when optical data is unavailable.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🌐 Role of EO in DRM Phases</div>
+      <table>
+        <tr><th>DRM Phase</th><th>EO Contribution</th><th>Data Type</th></tr>
+        <tr><td>Pre-disaster (Mitigation/Prep)</td><td>Hazard mapping, risk assessment, land-use planning</td><td>Optical, DEM, SAR</td></tr>
+        <tr><td>During disaster (Response)</td><td>Rapid damage assessment, flood extent, fire mapping</td><td>SAR, Optical</td></tr>
+        <tr><td>Post-disaster (Recovery)</td><td>Change detection, rebuilding monitoring, needs assessment</td><td>Optical, SAR, LiDAR</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📡 Key RS Data Types</div>
+      <table>
+        <tr><th>Type</th><th>Sensor</th><th>Advantage in DRM</th></tr>
+        <tr><td><strong>Optical</strong></td><td>Sentinel-2, Landsat</td><td>Visual interpretation, land cover mapping</td></tr>
+        <tr><td><strong>SAR</strong></td><td>Sentinel-1, ALOS PALSAR</td><td>All-weather, day/night, penetrates cloud/smoke</td></tr>
+        <tr><td><strong>LiDAR</strong></td><td>Airborne/terrestrial</td><td>High accuracy 3D terrain, flood modelling</td></tr>
+        <tr><td><strong>UAV/Drone</strong></td><td>Various</td><td>Very high resolution, rapid deployment, local scale</td></tr>
+        <tr><td><strong>GNSS</strong></td><td>GPS, Galileo</td><td>Ground deformation, positioning</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔬 Systems Thinking in DRM</div>
+      <p style="font-size:.88rem;color:var(--text2);">Systems Thinking is a <strong style="color:var(--text)">holistic, integrative, cross-disciplinary</strong> approach that views problems as part of an interconnected system rather than isolated components.</p>
+      <ul class="styled" style="margin-top:10px;">
+        <li><strong>Holism vs Reductionism:</strong> Systems thinking = look at the whole; Reductionism = break into parts</li>
+        <li>In DRM: disasters don't happen in isolation — social, economic, environmental systems interact</li>
+        <li>Enables understanding of feedbacks, cascading effects, and emergent properties</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Key Terms -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📖</span>Key DRM Terminology</div>
+    <div class="card">
+      <table>
+        <tr><th>Term</th><th>Definition</th></tr>
+        <tr><td><strong>Capacity</strong></td><td>Combination of strengths and resources available to manage and reduce disaster risk</td></tr>
+        <tr><td><strong>Damage</strong></td><td>Immediate losses in assets and infrastructure during the event</td></tr>
+        <tr><td><strong>Exposure</strong></td><td>People, property, systems located in hazard-prone areas</td></tr>
+        <tr><td><strong>Hazard</strong></td><td>Dangerous phenomenon that may cause loss of life, injury, or other impacts</td></tr>
+        <tr><td><strong>Impact</strong></td><td>Total effect of the disaster, including economic, human, environmental</td></tr>
+        <tr><td><strong>Loss</strong></td><td>Costs to the economy and society resulting from the disaster</td></tr>
+        <tr><td><strong>Multi-hazard</strong></td><td>Considering more than one hazard at a time in an area</td></tr>
+        <tr><td><strong>Risk</strong></td><td>Potential for loss = Hazard × Exposure × Vulnerability</td></tr>
+        <tr><td><strong>Vulnerability</strong></td><td>Conditions that increase susceptibility to harm from a hazard</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== LECTURE 3 ===================== -->
+<div id="tab-lec3" class="tab-panel">
+  <div class="section-title"><span class="icon">🌍</span>Lecture 3: Spatial Referencing &amp; Satellite-Based Positioning</div>
+
+  <!-- Reference Surfaces -->
+  <div class="section">
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">Two Reference Surfaces for Earth Approximation</div>
+      <div class="grid2">
+        <div style="background:rgba(67,233,123,.06);border:1px solid rgba(67,233,123,.2);border-radius:8px;padding:14px;">
+          <p style="color:var(--tip);font-weight:700;margin-bottom:8px;">🌊 GEOID</p>
+          <ul class="styled">
+            <li>Gravity-based equipotential surface</li>
+            <li>Closely approximated by mean sea level</li>
+            <li>Undulating, irregular shape</li>
+            <li>Used for: <strong>Orthometric Height (H)</strong></li>
+            <li>"What water flows along"</li>
+            <li>Measured by: tide gauges (mareographs)</li>
+          </ul>
+        </div>
+        <div style="background:rgba(108,99,255,.06);border:1px solid rgba(108,99,255,.2);border-radius:8px;padding:14px;">
+          <p style="color:var(--accent);font-weight:700;margin-bottom:8px;">📐 ELLIPSOID</p>
+          <ul class="styled">
+            <li>Mathematical/geometric surface</li>
+            <li>Smooth, regular shape</li>
+            <li>Defined by semi-major (a) and semi-minor (b) axes</li>
+            <li>Used for: <strong>Ellipsoidal Height (h)</strong></li>
+            <li>Used for horizontal coordinates</li>
+            <li>GPS uses ellipsoid (WGS84)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="formula">Geoid Separation (N) = h − H</div>
+      <p style="font-size:.85rem;color:var(--text2);">N can be positive or negative depending on location. GPS gives h; for practical engineering use, convert to H using N.</p>
+      <div class="tip-box"><strong>🧠 Memory:</strong> Geoid = <strong>G</strong>ravity, <strong>G</strong>round, <strong>G</strong>eography (physical). Ellipsoid = <strong>E</strong>quation, <strong>E</strong>xact math. H = <strong>H</strong>eight you feel walking uphill (physical). h = <strong>h</strong>idden from reality (mathematical).</div>
+    </div>
+
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">WGS84 – World Geodetic System 1984</div>
+      <table>
+        <tr><th>Parameter</th><th>Value</th><th>Meaning</th></tr>
+        <tr><td>Semi-major axis (a)</td><td><span class="hl">6,378,137 m</span></td><td>Equatorial radius</td></tr>
+        <tr><td>Semi-minor axis (b)</td><td><span class="hl">6,356,752 m</span></td><td>Polar radius</td></tr>
+        <tr><td>Flattening (f)</td><td><span class="hl">1/298.257</span></td><td>f = (a−b)/a</td></tr>
+      </table>
+      <p style="font-size:.85rem;color:var(--text2);margin-top:10px;">WGS84 is the global reference ellipsoid used by GPS. Established by IUGG (International Union of Geodesy and Geophysics).</p>
+      <div class="tip-box"><strong>🧠 Memory:</strong> "6 million 378 — the Earth around the equator" → a = 6,378,137. Flattening = 1/298 ≈ tiny (Earth is nearly spherical).</div>
+    </div>
+  </div>
+
+  <!-- Coordinate Systems -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📍</span>Coordinate Systems &amp; Reference Frames</div>
+
+    <div class="card">
+      <div class="card-title">ITRS &amp; ITRF</div>
+      <table>
+        <tr><th>System</th><th>Full Name</th><th>Key Feature</th></tr>
+        <tr><td><strong>ITRS</strong></td><td>International Terrestrial Reference System</td><td>Geocentric 3D coordinate system; Z-axis to mean North Pole; conceptual standard</td></tr>
+        <tr><td><strong>ITRF</strong></td><td>International Terrestrial Reference Frame</td><td>Physical realization of ITRS; maintained by GPS ground station network; actual coordinates</td></tr>
+      </table>
+      <div class="tip-box"><strong>🧠 Trick:</strong> System (ITRS) = the rules/theory. Frame (ITRF) = the actual measurements. Like a clock system (concept) vs a real clock (object).</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Types of Coordinate Systems</div>
+      <table>
+        <tr><th>Type</th><th>Dimensions</th><th>Example</th></tr>
+        <tr><td><strong>Spatial 3D</strong></td><td>X, Y, Z (Cartesian geocentric)</td><td>ITRS coordinates</td></tr>
+        <tr><td><strong>Geographic (2D on ellipsoid)</strong></td><td>Latitude (φ), Longitude (λ)</td><td>GPS coordinates</td></tr>
+        <tr><td><strong>Planar (2D map)</strong></td><td>Easting, Northing</td><td>UTM, national grids</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Map Projections -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🗺️</span>Map Projections</div>
+
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">3 Types of Map Projections</div>
+      <table>
+        <tr><th>Type</th><th>Surface</th><th>Example</th><th>Preserves</th></tr>
+        <tr><td><strong>Cylindrical</strong></td><td>Cylinder wraps globe</td><td>Mercator, UTM</td><td>Shape near equator</td></tr>
+        <tr><td><strong>Conical</strong></td><td>Cone placed on globe</td><td>Lambert Conformal Conic</td><td>Shape in mid-latitudes</td></tr>
+        <tr><td><strong>Azimuthal / Planar</strong></td><td>Flat plane touches globe</td><td>Stereographic, Gnomonic</td><td>Direction from center</td></tr>
+      </table>
+      <p style="font-size:.85rem;color:var(--accent4);margin-top:10px;"><strong>Mercator Projection:</strong> Cylindrical, conformal (preserves shape), but <span class="hl-red">severely distorts area near poles</span> (Greenland ≈ Africa on Mercator but Africa is 14× larger).</p>
+      <div class="tip-box"><strong>🧠 Memory:</strong> "Can Cats Avoid?" → <strong>C</strong>ylindrical, <strong>C</strong>onical, <strong>A</strong>zimuthal. Each one = how you "unwrap" the globe.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Datum Transformation Workflow</div>
+      <div class="formula">Map Coordinates (A) → Geographic (lat/lon) → Datum Transform → Geographic (lat/lon) → Map Coordinates (B)</div>
+      <p style="font-size:.88rem;color:var(--text2);">You cannot transform directly between two projected coordinate systems — you must go through geographic coordinates first, apply datum transformation, then re-project.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Local vs Global Datums</div>
+      <ul class="styled">
+        <li><strong>Local Horizontal Datum:</strong> Created by triangulation/trilateration from a reference point; fits local region well but not globally consistent</li>
+        <li><strong>Global Datum (WGS84):</strong> Geocentric; consistent worldwide; used by GPS/GNSS; may not match local heights</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Satellite Positioning -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🛰️</span>Satellite-Based Positioning (GNSS/GPS)</div>
+
+    <div class="hot-card">
+      <span class="hot-badge">🔥 HOT</span>
+      <div class="card-title">Why 4 Satellites Are Needed for 3D Positioning</div>
+      <p style="font-size:.88rem;color:var(--text2);margin-bottom:12px;">GPS positioning uses <strong style="color:var(--text)">pseudoranges</strong> — distance measurements that contain a receiver clock bias error.</p>
+      <div class="formula">4 unknowns: X, Y, Z (position) + Δt (clock bias) → need 4 equations = 4 satellites</div>
+      <table>
+        <tr><th>Satellites</th><th>Solves For</th></tr>
+        <tr><td>3 satellites</td><td>2D position (X, Y) only — clock error not solved</td></tr>
+        <tr><td>4 satellites</td><td>Full 3D position (X, Y, Z) + clock bias correction ✓</td></tr>
+        <tr><td>5+ satellites</td><td>Redundancy, improved accuracy, integrity monitoring</td></tr>
+      </table>
+      <div class="tip-box"><strong>🧠 Memory:</strong> "3 for space, 1 for time" → 3 satellites define your 3D location, the 4th satellite corrects your clock. 4 unknowns need 4 equations — it's basic algebra!</div>
+      <div class="trick-box"><strong>🎯 Exam Trick:</strong> Pseudorange = measured distance, but because your receiver clock is imperfect, it's "pseudo" (not exact). The 4th satellite eliminates this unknown. Always mention "clock bias" in your answer.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== QUESTIONS ===================== -->
+<div id="tab-questions" class="tab-panel">
+  <div class="section-title"><span class="icon">📝</span>30 Practice Questions – Short Q, Narrative Answers</div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="q-search" placeholder="Search questions..." oninput="filterQA(this.value)">
+  </div>
+
+  <div id="qa-list">
+
+  <!-- Q1 -->
+  <div class="qa-item" data-text="define natural disaster undrr 2016 three elements capacity disruption">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q1</span>
+      <span class="qa-q">Define "natural disaster" according to UNDRR (2016) and explain its three key elements.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span><span class="qa-hot">🔥 Very Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">According to UNDRR (2016), a natural disaster is "a serious disruption of the functioning of a community or society at any scale, caused by hazardous events interacting with conditions of exposure, vulnerability, and capacity, leading to one or more of the following: human, material, economic, and environmental losses and impacts." It has three key elements: First, <em>disruption of functioning</em> — normal activities of society are interrupted. Second, <em>impact</em> — widespread human, economic, or environmental losses occur. Third, <em>overwhelmed capacity</em> — the community's own resources are insufficient to cope with the event. All three elements must be present for an event to qualify as a disaster.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 DIO:</strong> <strong>D</strong>isruption + <strong>I</strong>mpact + <strong>O</strong>verwhelmed capacity = Disaster. No DIO = no disaster.</div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="qa-item" data-text="ipcc ar6 definition disaster hazard vulnerability interaction">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q2</span>
+      <span class="qa-q">How does the IPCC AR6 (2022) definition of disaster differ from UNDRR's definition?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">While both definitions describe disasters as events causing significant disruption and losses, they differ in their emphasis. UNDRR (2016) is capacity-centric — it defines a disaster through the lens of a community's overwhelmed capacity to cope. IPCC AR6 (2022) is process-centric — it emphasizes the <em>interaction between hazard and vulnerability</em> as the mechanism that produces disasters. The IPCC definition highlights that disasters are not just about the physical hazard itself, but about the dynamic interplay between hazardous events and the socioeconomic conditions of vulnerability. This makes the IPCC framing more useful for climate-related disasters where exposure and vulnerability are increasingly shaped by global change.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠</strong> UNDRR = "Can't cope" (capacity). IPCC = "H×V interaction" (process). Two lenses, same disaster.</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="qa-item" data-text="disaster management cycle preparedness response recovery mitigation phases">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q3</span>
+      <span class="qa-q">Describe the four phases of the Disaster Management Cycle and explain how Earth Observation supports each phase.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span><span class="qa-hot">🔥 Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">The Disaster Management Cycle is a continuous loop of four phases. <em>Preparedness</em> involves planning, training, and establishing early warning systems before disasters occur; EO supports this through hazard mapping, vulnerability assessment, and monitoring early warning indicators. <em>Response</em> covers immediate actions during or just after a disaster, such as search and rescue; EO provides rapid damage assessments, flood extent mapping, and situational awareness. <em>Recovery</em> focuses on rebuilding communities and restoring services; EO enables change detection to monitor reconstruction progress and assess remaining needs. <em>Mitigation</em> aims to reduce future risk through long-term measures like land-use planning; EO contributes through multi-temporal hazard mapping and exposure analysis. Each phase feeds into the next, making the cycle iterative rather than linear.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "Pretty Roses Rarely Manage"</strong> → Preparedness, Response, Recovery, Mitigation</div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="qa-item" data-text="HFA Hyogo Framework 5 priorities 2005 2015">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q4</span>
+      <span class="qa-q">List and briefly explain the five priorities of the Hyogo Framework for Action (HFA, 2005–2015).</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span><span class="qa-hot">🔥 Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">The Hyogo Framework for Action (2005–2015) established five priorities for disaster risk reduction. Priority 1 is to ensure that <em>DRR becomes a national and local priority</em> with a strong institutional basis, meaning governments must integrate risk reduction into policy. Priority 2 is to <em>identify, assess, and monitor disaster risks and enhance early warning</em>, so communities have timely information to act on threats. Priority 3 is to <em>use knowledge, innovation, and education</em> to build a culture of safety and resilience at all levels. Priority 4 is to <em>reduce the underlying risk factors</em>, addressing poverty, environmental degradation, and poor urban development. Priority 5 is to <em>strengthen disaster preparedness for effective response</em> at all levels, ensuring systems are in place before disaster strikes.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "National Identification Keeps Reducing Strengthening"</strong> → Institutional priority, Identify risks, Knowledge/education, Reduce risk factors, Strengthen preparedness</div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="qa-item" data-text="SFDRR Sendai Framework 4 priorities 2015 2030 build back better">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q5</span>
+      <span class="qa-q">What are the four priorities of the Sendai Framework (SFDRR, 2015–2030), and how do they differ from HFA?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span><span class="qa-hot">🔥 Very Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">The Sendai Framework for Disaster Risk Reduction (2015–2030) has four priorities. Priority 1 is <em>Understanding disaster risk</em> — comprehending hazards, exposure, vulnerability, and capacity. Priority 2 is <em>Strengthening disaster risk governance</em> — improved coordination across sectors and levels. Priority 3 is <em>Investing in DRR for resilience</em> — directing resources toward prevention. Priority 4 is <em>Enhancing disaster preparedness for effective response and to "Build Back Better"</em> — ensuring recovery leads to improved resilience. Compared to HFA, SFDRR is more proactive: it aims to prevent the creation of new risk rather than just manage existing risk. It also broadens stakeholder participation beyond government to include the private sector, science community, and civil society. Crucially, SFDRR introduced seven global targets with measurable indicators for monitoring progress, which HFA lacked.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "UGIB"</strong> → <strong>U</strong>nderstand, <strong>G</strong>overnance, <strong>I</strong>nvest, <strong>B</strong>uild Back Better. SFDRR = "Everyone + Proactive + Measure it."</div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="qa-item" data-text="risk formula hazard exposure vulnerability components">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q6</span>
+      <span class="qa-q">Explain the disaster risk formula and describe what each component means. How can risk be reduced?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span><span class="qa-hot">🔥 Very Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">Disaster risk is expressed as: Risk (R) = Hazard (H) × Exposure (Ex) × Vulnerability (V). <em>Hazard</em> is a potentially damaging physical phenomenon — such as an earthquake, flood, or cyclone — that has the potential to cause harm. <em>Exposure</em> refers to people, assets, infrastructure, or systems located in hazard-prone zones. <em>Vulnerability</em> describes the susceptibility of exposed elements to damage, rooted in social, economic, physical, or environmental conditions. Risk can be reduced by acting on any component: reducing hazard impact (through early warning or engineered barriers), reducing exposure (through land-use zoning or relocation), or reducing vulnerability (through stronger buildings, social safety nets, and capacity building). The formula reveals that a hazard alone does not create a disaster — it requires exposed and vulnerable populations to become a risk, and ultimately a disaster if capacity is overwhelmed.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "HEV like a car"</strong> → Hazard = road danger, Exposure = car on the road, Vulnerability = worn brakes. Fix any one = safer drive.</div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="qa-item" data-text="PAR model pressure release root causes dynamic pressures unsafe conditions">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q7</span>
+      <span class="qa-q">Explain the PAR (Pressure and Release) model of disaster risk. What does "releasing pressure" mean in practice?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span><span class="qa-hot">🔥 Very Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">The PAR (Pressure and Release) model explains how disasters result from the intersection of social vulnerabilities and physical hazards. On one side, vulnerability is "built up" through three levels of social conditions: <em>Root Causes</em> (deep structural factors such as poverty, political marginalization, and lack of resources), <em>Dynamic Pressures</em> (processes that translate root causes into vulnerable conditions, such as rapid urbanization, population growth, and lack of local institutions), and <em>Unsafe Conditions</em> (specific physical or social contexts like fragile housing, hazardous locations, and weak livelihoods). On the other side, physical hazards press against these unsafe conditions. A disaster occurs when the two sides meet. "Releasing pressure" means addressing root causes — eliminating poverty, empowering communities, improving governance — so that the chain of vulnerability is broken before a hazard event strikes.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 Pressure Cooker:</strong> Root causes = heat source, Dynamic pressures = building steam, Unsafe conditions = weak valve, Hazard = the moment it explodes. Release = turn off the heat (fix root causes).</div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="qa-item" data-text="cascading hazard definition example earthquake tsunami">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q8</span>
+      <span class="qa-q">What is a cascading hazard? Provide a real-world example and explain why it is challenging for disaster management.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">A cascading hazard occurs when a primary hazard event triggers one or more secondary hazard events in a chain reaction. A classic example is the 2011 Tōhoku event: the earthquake (primary hazard) triggered a massive tsunami (secondary hazard), which then caused the Fukushima nuclear plant failure (tertiary hazard). Cascading hazards are particularly challenging for disaster management for several reasons. First, response plans designed for one hazard type may be inadequate or counterproductive for subsequent hazards. Second, the cumulative impact is far greater than any single event, overwhelming emergency services. Third, the timing and nature of secondary hazards may be difficult to predict. Effective management requires multi-hazard early warning systems, cross-sectoral coordination, and scenario planning that anticipates cascade chains rather than treating each hazard in isolation.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 Domino Effect:</strong> Cascading = dominos. One falls → knocks the next → chain reaction. Earthquake → Tsunami → Nuclear meltdown = one cascade.</div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="qa-item" data-text="six types hazards multi-disaster parallel coincident cyclic">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q9</span>
+      <span class="qa-q">Name and briefly describe the six types of hazard interactions in a multi-disaster context.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span><span class="qa-hot">🔥 Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">In a multi-disaster context, hazards can interact in six distinct ways. (1) <em>Parallel hazards</em> occur simultaneously but independently in different locations. (2) <em>Cascading hazards</em> involve a chain reaction where one hazard triggers subsequent hazards. (3) <em>Disposition alteration</em> occurs when a first hazard changes the environment, increasing susceptibility to a second hazard — for example, drought weakening soil cohesion leading to landslides after rain. (4) <em>Additional hazard potential</em> arises when the first hazard creates conditions for new hazards, such as an earthquake creating unstable slopes. (5) <em>Coincident triggering</em> occurs when two simultaneous hazards combine to produce a third — for example, heavy rain and saturated soils together triggering landslides. (6) <em>Cyclic triggering</em> describes regular seasonal patterns of hazard occurrence, such as annual monsoon flooding.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "PC-DA-CC"</strong> → <strong>P</strong>arallel, <strong>C</strong>ascading, <strong>D</strong>isposition, <strong>A</strong>dditional, <strong>C</strong>oincident, <strong>C</strong>yclic. Think of "PC Desktop Application Cycling."</div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="qa-item" data-text="remote sensing definition art science technology distance electromagnetic">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q10</span>
+      <span class="qa-q">Define remote sensing and explain the role of electromagnetic radiation as an information carrier in this field.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span><span class="qa-hot">🔥 Very Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">Remote sensing is defined as "the art, science, and technology of observing an object, scene, or phenomenon by instrument-based techniques from a distance, without physical contact." The word "remote" means not in direct contact, while "sensing" means detecting information about the target. Electromagnetic radiation (EMR) serves as the primary information carrier in remote sensing. Different features of the Earth's surface and atmosphere interact with EMR in characteristic ways — absorbing, reflecting, transmitting, or emitting energy at different wavelengths. Sensors on satellites or aircraft measure this EMR to infer physical properties such as vegetation cover, soil moisture, urban extent, or temperature. Passive sensors detect naturally reflected or emitted EMR (e.g., sunlight reflected from the ground), while active sensors emit their own EMR and measure the return signal, enabling observations regardless of natural light conditions.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "See from far, measure light"</strong> → Remote = far, Sensing = measuring EMR interaction. Passive = uses sun's light. Active = has its own flashlight (SAR, LiDAR).</div>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="qa-item" data-text="SAR optical passive active sensor advantage cloud disaster">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q11</span>
+      <span class="qa-q">Compare passive and active remote sensing sensors. Why are active sensors (SAR) particularly valuable in disaster response?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">Passive sensors detect electromagnetic radiation that originates from external sources, primarily the sun. Optical sensors (such as Sentinel-2 and Landsat) are passive — they record sunlight reflected from Earth's surface. They produce visually interpretable images but are limited by cloud cover, smoke, and darkness, which block their view. Active sensors, in contrast, generate and transmit their own electromagnetic pulses and measure the energy returning from the target. Synthetic Aperture Radar (SAR), for example Sentinel-1, emits microwave energy that penetrates clouds, smoke, and darkness, providing reliable imagery under any weather conditions. In disaster response, this is critical because disasters often generate thick cloud cover, smoke from fires, or occur at night. SAR can also detect subtle surface deformation, detect flooded areas under vegetation canopy, and monitor structural changes, making it indispensable for rapid damage assessment when optical data is unavailable.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 Torch analogy:</strong> Passive = camera using sunlight (useless at night). Active = camera with its own torch (works anytime, anywhere). SAR torch = microwave energy that goes through clouds.</div>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="qa-item" data-text="GAR 2022 global disaster statistics deaths economic losses developing countries">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q12</span>
+      <span class="qa-q">What key findings from GAR 2022 reveal about the global pattern and economic impact of disasters?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span><span class="qa-hot">🔥 Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">The Global Assessment Report on Disaster Risk Reduction (GAR) 2022 reveals several critical patterns. Between 2000 and 2019, there were 7,348 recorded natural disasters, resulting in approximately 1.23 million deaths and affecting 4.2 billion people (many counted multiple times). Economic losses totalled USD 2.97 trillion. Between 2015 and 2021, the annual average cost of disasters reached USD 330 billion. The geographic pattern of mortality is starkly unequal — 91% of all disaster-related deaths occurred in developing countries, highlighting the disproportionate burden borne by nations with lower adaptive capacity. Economically, developed nations suffer greater absolute financial losses, but developing nations suffer more in proportion to their GDP. The report also demonstrates the cost-effectiveness of prevention: every USD 1 invested in disaster risk reduction saves USD 5 to 10 in future disaster losses.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "7-1-4-3 formula"</strong> → 7,348 disasters, 1.23M deaths, 4.2B affected, $2.97 trillion losses. Plus: 91% deaths in developing nations, $1 DRR = $5–10 savings.</div>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="qa-item" data-text="paris agreement COP21 temperature 2 degrees NDC climate finance">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q13</span>
+      <span class="qa-q">Summarize the key commitments of the Paris Agreement (COP21, 2015) and explain its relevance to disaster risk.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">The Paris Agreement, adopted at COP21 in December 2015, is an international treaty aimed at limiting human-induced climate change. Its central commitment is to hold global temperature rise to well below 2°C above pre-industrial levels, while pursuing efforts to limit warming to 1.5°C — a threshold critical for avoiding the most severe climate impacts. Countries participate by submitting Nationally Determined Contributions (NDCs), which are self-determined climate action plans, to be revised and strengthened every five years. Developed nations committed to providing at least USD 100 billion per year in climate finance to support developing nations. The Paris Agreement is directly relevant to disaster risk because climate change intensifies the frequency and severity of extreme weather events — including storms, floods, droughts, and heatwaves — which increases disaster risk globally. Without climate mitigation, the underlying hazard component of the risk equation will continue to grow.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "2-1.5-5-100"</strong> → &lt;2°C ceiling, aim for 1.5°C, NDC every 5 years, $100B/year finance. Climate action = disaster prevention.</div>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="qa-item" data-text="systems thinking holistic integrative reductionism DRM">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q14</span>
+      <span class="qa-q">What is systems thinking, and why is it important in the context of Disaster Risk Management?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">Systems thinking is a holistic, integrative, and cross-disciplinary approach to analysis that focuses on understanding how a system's components interrelate and how systems work over time and within larger systems. It contrasts with reductionism, which breaks a problem into isolated parts. In the context of DRM, systems thinking recognizes that disasters are not merely physical events but products of complex interactions between social, economic, environmental, and governance systems. For example, flooding in an urban area involves not just the hydrology (physical system) but also urban planning decisions (governance), socioeconomic inequality (social system), and land degradation (environmental system). Systems thinking helps DRM practitioners identify feedback loops, unintended consequences, and leverage points — places where small changes produce large improvements in resilience. It supports more integrated, sustainable disaster risk reduction strategies that address root causes rather than symptoms.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠</strong> Systems = Whole picture. Reductionism = puzzle pieces. DRM needs the whole puzzle, not just one piece.</div>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="qa-item" data-text="vulnerability definition susceptibility capacity social economic physical">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q15</span>
+      <span class="qa-q">Define vulnerability in the context of disaster risk and explain the factors that contribute to it.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">Vulnerability is defined as the conditions determined by physical, social, economic, and environmental factors or processes that increase the susceptibility of an individual, a community, assets, or systems to the impacts of hazards. It represents the degree to which a community or system is unable to resist, absorb, cope with, or recover from a hazardous event. Physical vulnerability includes poorly constructed buildings or infrastructure in hazard-prone locations. Social vulnerability encompasses poverty, marginalization, lack of access to information, and weak social networks. Economic vulnerability involves dependence on hazard-exposed livelihoods, limited insurance, and lack of savings. Environmental vulnerability includes ecosystem degradation that removes natural buffers such as wetlands or mangroves that reduce flood impact. Critically, vulnerability is not fixed — it can be reduced through targeted DRR measures such as building codes, social protection, education, and ecosystem restoration.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 PSEE:</strong> Physical + Social + Economic + Environmental = vulnerability. Think "People Struggle Especially Exposed."</div>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="qa-item" data-text="geoid definition gravity equipotential mean sea level orthometric height">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q16</span>
+      <span class="qa-q">Define the Geoid and explain why it is used as a reference surface for measuring heights.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span><span class="qa-hot">🔥 Very Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">The Geoid is an equipotential surface of Earth's gravity field that closely corresponds to the mean sea level of the undisturbed ocean and its imaginary continuation under the continents. It is an undulating, irregular surface — not a perfect sphere or ellipsoid — because Earth's internal mass distribution is uneven, causing variations in gravitational attraction. The Geoid is used as the reference surface for measuring orthometric heights (H), also called physical heights or heights above sea level. This is because the Geoid corresponds to the natural flow of water: water flows from high to low potential, which corresponds to downhill on the Geoid. Any survey of heights that must be physically meaningful — such as for drainage design, flood modelling, or infrastructure — must reference the Geoid. The mean sea level at coastal locations is measured using tide gauges (mareographs), which collectively define the local Geoid realization.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "Geoid = where water goes"</strong> → Gravity controls water flow; Geoid is the surface water follows. If your height is measured from the Geoid, water flows downhill — makes physical sense. Orthometric Height H = "Height above sea level."</div>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="qa-item" data-text="ellipsoid reference surface mathematical semi-major semi-minor flattening definition">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q17</span>
+      <span class="qa-q">What is a reference ellipsoid? How is it defined mathematically, and what is it used for?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span><span class="qa-hot">🔥 Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">A reference ellipsoid is a mathematically defined, smooth, oblate spheroid that serves as a simplified geometric approximation of Earth's shape. Unlike the Geoid, which is physically motivated by gravity, the ellipsoid is purely geometric. It is defined by two parameters: the semi-major axis (a), which is the equatorial radius, and the semi-minor axis (b), the polar radius. The degree of flattening is described by the flattening parameter f = (a − b) / a. The ellipsoid is used as the reference surface for horizontal geodetic coordinates — latitude (φ) and longitude (λ) are measured on the ellipsoid. GPS systems use the WGS84 ellipsoid (a = 6,378,137 m; f = 1/298.257), while different countries have historically used locally fitted ellipsoids that best match their territory. Because the ellipsoid is smooth and mathematically tractable, it is ideal for global navigation and coordinate calculations.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "a=Equator, b=Pole, f=(a-b)/a"</strong> → Flat at poles (b &lt; a), so f is positive (Earth is squished). WGS84: a=6,378,137; f=1/298 ≈ tiny.</div>
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="qa-item" data-text="orthometric height ellipsoidal height geoid separation N difference GPS">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q18</span>
+      <span class="qa-q">Explain the difference between orthometric height (H) and ellipsoidal height (h), and define the geoid separation (N).</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span><span class="qa-hot">🔥 Very Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">Orthometric height (H) is the height of a point measured vertically above the Geoid — essentially what is commonly called "height above sea level." It is a physically meaningful height: water flows from high to low H, so H is essential for engineering and hydraulic applications. Ellipsoidal height (h) is the height of a point measured perpendicularly above the surface of the reference ellipsoid. GPS receivers directly compute ellipsoidal height because they use the WGS84 ellipsoid as their reference. The relationship between the two is given by the Geoid separation (undulation), denoted N: N = h − H, or equivalently H = h − N. The Geoid separation N varies globally and can be positive or negative. In most practical applications, GPS-derived ellipsoidal heights must be converted to orthometric heights using a geoid model, because engineering systems require physically meaningful heights referenced to mean sea level.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "h − H = N"</strong> → GPS gives h (ellipsoidal), you need H (physical). N = the gap between math and reality. "h is higher, H is humble (geoid)."</div>
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="qa-item" data-text="WGS84 parameters semi-major axis flattening GPS GNSS global">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q19</span>
+      <span class="qa-q">What is WGS84, and why is it used as the standard ellipsoid for GPS? State its key parameters.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span><span class="qa-hot">🔥 Very Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">WGS84 (World Geodetic System 1984) is the global reference ellipsoid adopted by the United States Department of Defense for the GPS satellite navigation system. It is a geocentric ellipsoid — its origin is at the Earth's center of mass — making it suitable for global positioning. Its key parameters are: semi-major axis a = 6,378,137 m (equatorial radius), semi-minor axis b = 6,356,752 m (polar radius), and flattening f = 1/298.257. WGS84 is used as the standard for GPS because it provides a globally consistent geometric framework, enabling precise positioning anywhere on Earth. It was established by the International Union of Geodesy and Geophysics (IUGG) and is the reference for all modern GNSS systems. When a GPS receiver reports latitude, longitude, and height, these values are referenced to WGS84.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "84 = 1984 + 6-3-1"</strong> → WGS84 from 1984; a=6,378,137 (6 million); b=6,356,752 (lower than a by ~21km); f=1/298 (flat like 1/300).</div>
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="qa-item" data-text="ITRS ITRF International Terrestrial Reference System Frame geocentric">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q20</span>
+      <span class="qa-q">Distinguish between ITRS (International Terrestrial Reference System) and ITRF (International Terrestrial Reference Frame).</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">The ITRS (International Terrestrial Reference System) is the theoretical conceptual framework — a set of conventions, constants, and models that define a geocentric, Earth-fixed Cartesian coordinate system. It specifies that the origin is at Earth's center of mass, the Z-axis points toward the mean North Pole (as defined by the International Earth Rotation Service), and the X-axis points toward the prime meridian. The ITRF (International Terrestrial Reference Frame) is the practical physical realization of the ITRS — the actual set of coordinates assigned to a network of precisely surveyed ground stations distributed globally, determined primarily through GPS observations. The ITRF is periodically updated (e.g., ITRF2020) to account for tectonic plate motion, which causes station positions to change over time. In essence, ITRS defines the rules, and ITRF provides the actual numbers that implement those rules.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 System vs Frame:</strong> ITRS = the rulebook (concept). ITRF = the scoreboard (real numbers). Like a measurement standard (System) vs a certified ruler (Frame).</div>
+    </div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="qa-item" data-text="map projection types cylindrical conical azimuthal distortion">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q21</span>
+      <span class="qa-q">What is a map projection? Describe the three main types and explain what distortions each introduces.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span><span class="qa-hot">🔥 Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">A map projection is the mathematical transformation of the curved surface of the Earth (sphere or ellipsoid) onto a flat two-dimensional plane. Since no projection can perfectly preserve all properties simultaneously, every projection involves trade-offs between shape, area, distance, and direction. The three main types are classified by the geometric surface used. Cylindrical projections wrap a cylinder around the globe; the Mercator projection is the most famous example — it preserves angles and shapes locally (conformal) but severely distorts area near the poles, making high-latitude regions appear much larger than they are. Conical projections place a cone on the globe, touching along one or two standard parallels; they are well-suited for mid-latitude regions and used in national mapping systems. Azimuthal (planar) projections project from a flat plane tangent to the globe, preserving directions from the center; they are ideal for polar regions or showing distances from a single point. The choice of projection depends on the geographic region and purpose of the map.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "Can Cats Avoid?"</strong> → Cylindrical (roll a paper), Conical (paper cone hat), Azimuthal (flat plate on globe). Mercator = cylindrical = great for navigation, bad for area near poles.</div>
+    </div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="qa-item" data-text="Mercator projection cylindrical conformal distortion poles">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q22</span>
+      <span class="qa-q">Describe the Mercator projection — what properties does it preserve and what are its major limitations?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">The Mercator projection is a cylindrical conformal map projection developed by Gerardus Mercator in 1569. It is constructed by mathematically projecting the globe onto a cylinder that is tangent at the equator, then unrolling the cylinder. Its primary property is conformality — it preserves angles and local shapes, meaning rhumb lines (lines of constant compass bearing) appear as straight lines, which made it invaluable for maritime navigation. However, the Mercator projection introduces severe area distortion that increases with latitude. Regions near the poles are greatly exaggerated: Greenland appears roughly the same size as Africa on a Mercator map, even though Africa is approximately 14 times larger. The poles cannot be shown at all because the projection extends to infinity at 90°. Despite its limitations for portraying area, it remains widely used for web mapping (Google Maps uses a variant) because of its mathematical simplicity and navigational utility.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "Mercator = Sailor's friend, Geographer's enemy"</strong> → Perfect for navigation (straight compass lines), terrible for showing real sizes (Greenland = Africa? No!).</div>
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="qa-item" data-text="datum transformation workflow geographic coordinates projection A to B">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q23</span>
+      <span class="qa-q">Describe the workflow for transforming spatial data from one map projection to another using a different datum.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">Transforming data between two coordinate systems with different datums is a multi-step process that cannot be done in a single direct conversion. The workflow proceeds as follows. First, convert the projected coordinates in System A (e.g., Easting/Northing) back to geographic coordinates (latitude and longitude) referenced to Datum A — this is an inverse projection. Second, apply a datum transformation to convert the geographic coordinates from Datum A to Datum B — this involves a mathematical transformation accounting for differences in ellipsoid shape, orientation, and origin between the two datums, commonly using methods such as the Helmert 7-parameter transformation. Third, apply the forward projection of System B to convert the geographic coordinates referenced to Datum B into the projected coordinates of System B (e.g., UTM Easting/Northing). This three-step process ensures that both geometric and physical reference frame differences are correctly accounted for, preventing positioning errors that could reach meters or even tens of meters if transformation steps are omitted.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "Unproject → Switch Datum → Re-project"</strong> → Always go through geographic (lat/lon) as the bridge. Can't jump between projections directly if datums differ.</div>
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="qa-item" data-text="pseudorange satellite positioning GPS receiver clock bias">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q24</span>
+      <span class="qa-q">What is a pseudorange in GPS positioning, and why is it called "pseudo"?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span><span class="qa-hot">🔥 Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">A pseudorange is the apparent distance between a GPS satellite and a receiver, calculated from the travel time of the satellite's radio signal multiplied by the speed of light. It is called "pseudo" (meaning false or approximate) because it is not the true geometric distance between the satellite and receiver. The discrepancy arises primarily from the receiver clock bias — GPS receivers use inexpensive quartz clocks that are not perfectly synchronized with the highly precise atomic clocks aboard GPS satellites. This clock error, if uncorrected, translates to significant position errors (a 1-microsecond clock error corresponds to approximately 300 m of range error). Because the receiver clock error is common to all satellite measurements, it can be estimated and eliminated as a fourth unknown in the positioning equations, alongside the three position coordinates (X, Y, Z). This is why at least four satellites are needed for a complete 3D position fix — to solve four unknowns simultaneously.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "Pseudo = not real yet"</strong> → Pseudorange = GPS distance estimate before fixing the clock mistake. True range = pseudorange once clock bias (Δt) is removed.</div>
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="qa-item" data-text="4 satellites 3D positioning GPS four unknowns X Y Z clock bias">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q25</span>
+      <span class="qa-q">Explain mathematically why at least four satellites are required to determine a 3D position using GPS.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span><span class="qa-hot">🔥 Very Likely</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">GPS positioning requires solving for four unknowns simultaneously: the receiver's position in three-dimensional space (X, Y, Z) and the receiver clock bias (Δt). Each satellite provides one pseudorange measurement, which yields one equation. In mathematics, solving for n unknowns requires at least n independent equations. Therefore, to solve for four unknowns (X, Y, Z, Δt), we need a minimum of four pseudorange measurements from four different satellites. With only three satellites, the system has three equations but four unknowns — the problem is underdetermined and cannot be solved for 3D position with clock correction. With four satellites, the system is exactly determined: the four equations can be solved simultaneously to obtain the three position coordinates and eliminate the receiver clock error. Using five or more satellites provides redundancy, enabling least-squares adjustment for improved accuracy and integrity monitoring to detect erroneous measurements.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "3 for space, 1 for time"</strong> → Three satellites locate you in space (X,Y,Z). The 4th satellite fixes your clock (Δt). 4 unknowns = 4 satellites. Simple algebra!</div>
+    </div>
+  </div>
+
+  <!-- Q26 -->
+  <div class="qa-item" data-text="coordinate systems spatial planar geographic latitude longitude UTM">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q26</span>
+      <span class="qa-q">Distinguish between spatial (geographic) and planar coordinate systems, and explain when each is used.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">Spatial or geographic coordinate systems describe positions on the curved surface of the Earth using angular measurements. Geographic coordinates (latitude φ and longitude λ) express position relative to the equator and prime meridian, both measured in degrees. Three-dimensional Cartesian geocentric coordinates (X, Y, Z) express position relative to Earth's center of mass, used in ITRS. These systems are ideal for global applications and long-distance navigation because they inherently account for Earth's curvature. Planar coordinate systems, by contrast, project the curved Earth surface onto a flat two-dimensional plane, expressing positions as Easting and Northing distances (typically in metres). Common examples include Universal Transverse Mercator (UTM) and national grid systems. Planar systems are preferred for local and regional GIS applications because flat-surface geometry simplifies distance and area calculations. However, they introduce distortions that grow with distance from the projection's central point, making them unsuitable for global-scale analysis.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "Sphere vs Sheet"</strong> → Geographic = on the sphere (degrees, global). Planar = on a flat sheet (metres, local). Use geographic for GPS navigation; use planar for GIS measurement and mapping.</div>
+    </div>
+  </div>
+
+  <!-- Q27 -->
+  <div class="qa-item" data-text="local horizontal datum triangulation trilateration national mapping">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q27</span>
+      <span class="qa-q">How were local horizontal datums established before GPS, and what were their limitations?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">Before GPS, local horizontal datums were established through classical geodetic surveying techniques, primarily triangulation and trilateration. Triangulation involved measuring the angles of a network of triangles across the landscape from precisely known base points, allowing positions to propagate outward with high accuracy using trigonometry. Trilateration measured distances between points using precise instruments such as electronic distance measurement (EDM) devices, rather than angles. These techniques produced networks of control points tied to a locally optimal reference ellipsoid — chosen and positioned to best fit the shape of the geoid in that particular region. The limitations of local datums are significant: each country or region used a different ellipsoid and a different datum origin, meaning coordinates were incompatible across borders. Local datums are not geocentric, so they cannot be used for global positioning or satellite navigation without transformation. The adoption of WGS84 as a global standard largely overcame these limitations, though datum transformations remain necessary when working with legacy datasets.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "Before GPS: Measure angles, chain the country"</strong> → Triangulation = angle chains. Local ellipsoid = fitted to your country only. Problem: Europe uses different datum from Asia — incompatible!</div>
+    </div>
+  </div>
+
+  <!-- Q28 -->
+  <div class="qa-item" data-text="EO Earth observation damage assessment disaster response rapid mapping">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q28</span>
+      <span class="qa-q">Describe how Earth Observation (EO) data supports rapid damage assessment during disaster response, citing specific data types.</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">Earth Observation data plays an essential role in rapid damage assessment during disaster response by providing timely, spatially comprehensive information that ground-based teams cannot gather quickly. SAR (Synthetic Aperture Radar) data, such as from Sentinel-1, is particularly valuable because it operates regardless of cloud cover, smoke, or time of day — conditions common during and after disasters. By comparing pre- and post-event SAR images, analysts detect changes in backscatter that indicate building collapse, flooding, or landslides. Optical imagery, such as from Sentinel-2 or very-high-resolution commercial satellites like Pleiades, provides visually interpretable imagery for mapping flood extent, debris fields, and infrastructure damage. LiDAR data enables precise three-dimensional assessment of terrain changes and structural damage. UAV/drone imagery offers ultra-high resolution imagery of specific damaged areas at low cost. Together, these data streams enable the production of rapid damage maps within hours of a disaster, guiding the deployment of emergency responders to the most affected areas.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "SOUL"</strong> → <strong>S</strong>AR (cloud-proof), <strong>O</strong>ptical (visual), <strong>U</strong>AV (high-res local), <strong>L</strong>iDAR (3D terrain). Each sensor fills a gap the others leave.</div>
+    </div>
+  </div>
+
+  <!-- Q29 -->
+  <div class="qa-item" data-text="Build Back Better recovery SFDRR resilience reconstruction">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q29</span>
+      <span class="qa-q">What does "Build Back Better" mean in the context of disaster recovery, and how does it relate to SFDRR?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 1</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">"Build Back Better" (BBB) is a principle in disaster recovery that advocates for restoring communities and infrastructure in a way that reduces future risk, rather than simply reconstructing what existed before. The core idea is that a post-disaster reconstruction period presents a unique opportunity — often called a "window of opportunity" — to incorporate improved building standards, hazard-resistant design, better land-use planning, and stronger governance that reduces future vulnerability. For example, after a flood, reconstructing buildings with flood-resistant materials, elevating floor levels, or relocating at-risk settlements to safer areas. BBB was formally incorporated into Priority 4 of the Sendai Framework for Disaster Risk Reduction (SFDRR, 2015–2030), making it a cornerstone of international DRR policy. It represents the shift from merely responding to disasters to using recovery as an entry point for long-term resilience building — ensuring that societies emerge from disasters stronger and better prepared than before.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "BBB = Don't just rebuild, rebuild smarter"</strong> → After the flood: don't rebuild the house in the same flood zone — move it up the hill AND build it stronger. SFDRR Priority 4 = BBB in policy form.</div>
+    </div>
+  </div>
+
+  <!-- Q30 -->
+  <div class="qa-item" data-text="ellipsoid flattening semi-major semi-minor formula f=(a-b)/a meaning">
+    <div class="qa-header" onclick="toggleQA(this)">
+      <span class="qa-num">Q30</span>
+      <span class="qa-q">Explain the concept of ellipsoid flattening. What does a larger or smaller flattening value indicate about Earth's shape?</span>
+      <span class="qa-arrow">▼</span>
+    </div>
+    <div class="qa-body">
+      <span class="qa-topic">Lecture 3</span>
+      <div class="qa-label">MODEL ANSWER</div>
+      <div class="qa-answer">The flattening of a reference ellipsoid is a dimensionless parameter that quantifies how much the ellipsoid deviates from a perfect sphere. It is defined as f = (a − b) / a, where a is the semi-major (equatorial) axis and b is the semi-minor (polar) axis. For the WGS84 ellipsoid used by GPS, f = 1/298.257, which means the polar radius is shorter than the equatorial radius by about one part in 298, or approximately 21 kilometres. A flattening value of 0 would indicate a perfect sphere (a = b). A larger flattening value indicates a more oblate (squashed) shape, while a smaller value indicates a shape closer to a sphere. Earth's flattening arises from its rotation — centrifugal force causes material to bulge at the equator and flatten at the poles. The small but non-zero flattening of WGS84 means that precise positioning, particularly in the north-south direction, must account for this elliptical geometry rather than assuming a spherical Earth.</div>
+      <div class="qa-label">MEMORY TRICK</div>
+      <div class="tip-box"><strong>🧠 "f = (a−b)/a — bigger f = more squashed"</strong> → f=0: perfect ball. f=1: completely flat disk. Earth's f≈1/298: barely squashed, like a ball someone sat on very lightly. Polar radius is ~21km shorter than equatorial.</div>
+    </div>
+  </div>
+
+  </div><!-- end qa-list -->
+</div>
+
+<!-- ===================== QUICK REFERENCE ===================== -->
+<div id="tab-quickref" class="tab-panel">
+  <div class="section-title"><span class="icon">⚡</span>Quick Reference Cards</div>
+  <div class="grid2">
+    <div class="ref-card">
+      <h4>🔢 Key Numbers to Memorize</h4>
+      <ul>
+        <li>WGS84 a = <strong>6,378,137 m</strong></li>
+        <li>WGS84 b = <strong>6,356,752 m</strong></li>
+        <li>WGS84 f = <strong>1/298.257</strong></li>
+        <li>GPS needs <strong>4 satellites</strong> for 3D fix</li>
+        <li>HFA: <strong>5</strong> priorities (2005–2015)</li>
+        <li>SFDRR: <strong>4</strong> priorities (2015–2030)</li>
+        <li>Paris: &lt;<strong>2°C</strong>, aim <strong>1.5°C</strong></li>
+        <li>GAR: <strong>7,348</strong> disasters, <strong>1.23M</strong> deaths</li>
+        <li>GAR: <strong>91%</strong> deaths in developing nations</li>
+        <li>DRR ROI: $1 → $<strong>5–10</strong> saved</li>
+      </ul>
+    </div>
+    <div class="ref-card">
+      <h4>📐 Key Formulas</h4>
+      <ul>
+        <li>Risk: <strong>R = H × Ex × V</strong></li>
+        <li>Geoid separation: <strong>N = h − H</strong></li>
+        <li>Flattening: <strong>f = (a−b)/a</strong></li>
+        <li>GPS unknowns: <strong>X, Y, Z + Δt = 4</strong></li>
+        <li>Orthometric H: <strong>H = h − N</strong></li>
+      </ul>
+    </div>
+    <div class="ref-card">
+      <h4>🧠 All Mnemonics</h4>
+      <ul>
+        <li>DRM Cycle: <strong>"Pretty Roses Rarely Manage"</strong></li>
+        <li>HFA priorities: <strong>"National Identification Keeps Reducing Strengthening"</strong></li>
+        <li>SFDRR: <strong>"UGIB"</strong> (Understand, Governance, Invest, Build Back)</li>
+        <li>6 Hazard types: <strong>"PC-DA-CC"</strong></li>
+        <li>Map projections: <strong>"Can Cats Avoid?"</strong></li>
+        <li>GPS: <strong>"3 for space, 1 for time"</strong></li>
+        <li>Risk: <strong>"HEV like a car"</strong></li>
+        <li>Vulnerability: <strong>"PSEE"</strong></li>
+        <li>GAR: <strong>"7-1-4-3 formula"</strong></li>
+      </ul>
+    </div>
+    <div class="ref-card">
+      <h4>📊 Key Comparisons</h4>
+      <ul>
+        <li>Geoid = gravity surface → H (physical)</li>
+        <li>Ellipsoid = math surface → h (geometric)</li>
+        <li>ITRS = concept / ITRF = real numbers</li>
+        <li>Passive sensor = uses sunlight (optical)</li>
+        <li>Active sensor = own energy (SAR, LiDAR)</li>
+        <li>HFA = reactive / SFDRR = proactive</li>
+        <li>UNDRR def = capacity / IPCC def = process</li>
+      </ul>
+    </div>
+    <div class="ref-card">
+      <h4>📡 Remote Sensing Data Types</h4>
+      <ul>
+        <li>Optical: Sentinel-2, Landsat (passive)</li>
+        <li>SAR: Sentinel-1, ALOS PALSAR (active)</li>
+        <li>LiDAR: Airborne 3D terrain (active)</li>
+        <li>UAV/Drone: High-res local (passive/active)</li>
+        <li>GNSS: Positioning, deformation (active)</li>
+      </ul>
+    </div>
+    <div class="ref-card">
+      <h4>⚠️ Hazard Types Quick List</h4>
+      <ul>
+        <li>1. <strong>Parallel</strong> – simultaneous, independent</li>
+        <li>2. <strong>Cascading</strong> – chain reaction</li>
+        <li>3. <strong>Disposition Alteration</strong> – changes environment</li>
+        <li>4. <strong>Additional Hazard Potential</strong> – creates new hazard</li>
+        <li>5. <strong>Coincident Triggering</strong> – two combine → third</li>
+        <li>6. <strong>Cyclic Triggering</strong> – seasonal pattern</li>
+      </ul>
+    </div>
+    <div class="ref-card">
+      <h4>🗺️ Map Projection Quick Ref</h4>
+      <ul>
+        <li>Cylindrical → Mercator (nautical, web maps)</li>
+        <li>Conical → Lambert (mid-latitude countries)</li>
+        <li>Azimuthal → Stereographic (polar regions)</li>
+        <li>Mercator preserves: angles (conformal)</li>
+        <li>Mercator distorts: area (poles = huge)</li>
+        <li>UTM = cylindrical zone system (6° strips)</li>
+      </ul>
+    </div>
+    <div class="ref-card">
+      <h4>🌍 PAR Model Summary</h4>
+      <ul>
+        <li>Root Causes → poverty, inequality</li>
+        <li>Dynamic Pressures → urbanization, growth</li>
+        <li>Unsafe Conditions → fragile homes, risky locations</li>
+        <li>+ Hazard = <strong>DISASTER</strong></li>
+        <li>Release = address root causes</li>
+        <li>Analogy: pressure cooker exploding</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <div class="card-title">🎯 Exam Answer Template</div>
+    <p style="font-size:.88rem;color:var(--text2);">For every short narrative answer, use this structure:</p>
+    <div class="formula">
+1. DEFINE: State the key concept/term precisely<br>
+2. EXPLAIN: Describe its components, mechanism, or significance<br>
+3. EXAMPLE/FORMULA: Give a concrete example, number, or formula<br>
+4. CONCLUDE: State its importance or relevance
+    </div>
+    <div class="trick-box"><strong>🎯 Golden Rule:</strong> Never just list. Always explain WHY and HOW. Examiners reward understanding, not memorization alone. Connect concepts to their real-world significance.</div>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function toggleQA(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  // close all
+  document.querySelectorAll('.qa-header.open').forEach(h => {
+    h.classList.remove('open');
+    h.nextElementSibling.classList.remove('show');
+  });
+  if (!isOpen) {
+    header.classList.add('open');
+    body.classList.add('show');
+    setTimeout(() => body.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  }
+}
+
+function filterQA(val) {
+  const term = val.toLowerCase();
+  document.querySelectorAll('.qa-item').forEach(item => {
+    const text = (item.dataset.text || '') + ' ' + item.textContent.toLowerCase();
+    item.style.display = text.includes(term) ? '' : 'none';
+  });
+}
+
+// Scroll top button
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTopBtn');
+  btn.classList.toggle('visible', window.scrollY > 400);
+});
+</script>
+</body>
+</html>
