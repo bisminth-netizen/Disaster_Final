@@ -132,9 +132,12 @@ tr:hover td { background: rgba(108,99,255,.06); color: var(--text); }
 /* FORMULA */
 .formula {
   background: var(--surface2); border-left: 3px solid var(--accent);
-  border-radius: 0 8px 8px 0; padding: 12px 18px; margin: 12px 0;
+  border-radius: 0 8px 8px 0; padding: 14px 20px; margin: 12px 0;
   font-family: 'Courier New', monospace; font-size: 1.05rem; color: #c5caf5;
-  letter-spacing: .5px;
+  letter-spacing: .5px; overflow-x: auto;
+}
+.formula .MJX-TEX, .formula mjx-container {
+  color: #c5caf5 !important;
 }
 
 /* Q&A */
@@ -211,6 +214,10 @@ ul.styled li strong { color: var(--text); }
 .stat-num { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .stat-label { font-size: 0.78rem; color: var(--text2); margin-top: 4px; font-weight: 600; letter-spacing: .3px; }
 
+/* MathJax global color */
+mjx-container { color: var(--text) !important; }
+mjx-container[display="true"] { display: block; text-align: center; margin: 6px 0; overflow-x: auto; }
+
 /* Scrolltop */
 .scroll-top {
   position: fixed; bottom: 24px; right: 20px;
@@ -222,6 +229,17 @@ ul.styled li strong { color: var(--text); }
 }
 .scroll-top.visible { opacity: 1; pointer-events: all; }
 </style>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea'] }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -414,8 +432,8 @@ ul.styled li strong { color: var(--text); }
     <div class="hot-card">
       <span class="hot-badge">🔥 HOT</span>
       <div class="card-title">Risk Formula</div>
-      <div class="formula">Risk (R) = Hazard (H) × Exposure (Ex) × Vulnerability (V)</div>
-      <p style="font-size:.88rem;color:var(--text2);margin-bottom:10px;">Sometimes written as: <span class="hl">R = (H + Ex × V)</span> depending on context</p>
+      <div class="formula">\[ R = H \times Ex \times V \]</div>
+      <p style="font-size:.88rem;color:var(--text2);margin-bottom:10px;">Sometimes written as: <span class="hl">\( R = H + (Ex \times V) \)</span> depending on context</p>
       <table>
         <tr><th>Component</th><th>Definition</th><th>Example</th></tr>
         <tr><td><strong>Hazard (H)</strong></td><td>Potentially damaging physical event or phenomenon</td><td>Earthquake, flood, cyclone</td></tr>
@@ -429,7 +447,7 @@ ul.styled li strong { color: var(--text); }
       <span class="hot-badge">🔥 HOT</span>
       <div class="card-title">PAR Model – Pressure and Release</div>
       <p style="font-size:.88rem;color:var(--text2);margin-bottom:10px;">Shows how social conditions "pressure" people into unsafe situations that combine with hazards to create disasters.</p>
-      <div class="formula">Root Causes → Dynamic Pressures → Unsafe Conditions ← Hazards = DISASTER</div>
+      <div class="formula">\[ \text{Root Causes} \rightarrow \text{Dynamic Pressures} \rightarrow \text{Unsafe Conditions} \xleftarrow{\text{Hazards}} \textbf{DISASTER} \]</div>
       <table>
         <tr><th>Level</th><th>Examples</th></tr>
         <tr><td><strong>Root Causes</strong></td><td>Poverty, inequality, lack of resources, political power structures</td></tr>
@@ -559,8 +577,8 @@ ul.styled li strong { color: var(--text); }
           </ul>
         </div>
       </div>
-      <div class="formula">Geoid Separation (N) = h − H</div>
-      <p style="font-size:.85rem;color:var(--text2);">N can be positive or negative depending on location. GPS gives h; for practical engineering use, convert to H using N.</p>
+      <div class="formula">\[ N = h - H \quad \Longrightarrow \quad H = h - N \]</div>
+      <p style="font-size:.85rem;color:var(--text2);">where \(N\) = Geoid separation (undulation), \(h\) = ellipsoidal height (GPS output), \(H\) = orthometric height (physical/sea-level height). \(N\) can be positive or negative depending on location.</p>
       <div class="tip-box"><strong>🧠 Memory:</strong> Geoid = <strong>G</strong>ravity, <strong>G</strong>round, <strong>G</strong>eography (physical). Ellipsoid = <strong>E</strong>quation, <strong>E</strong>xact math. H = <strong>H</strong>eight you feel walking uphill (physical). h = <strong>h</strong>idden from reality (mathematical).</div>
     </div>
 
@@ -569,9 +587,9 @@ ul.styled li strong { color: var(--text); }
       <div class="card-title">WGS84 – World Geodetic System 1984</div>
       <table>
         <tr><th>Parameter</th><th>Value</th><th>Meaning</th></tr>
-        <tr><td>Semi-major axis (a)</td><td><span class="hl">6,378,137 m</span></td><td>Equatorial radius</td></tr>
-        <tr><td>Semi-minor axis (b)</td><td><span class="hl">6,356,752 m</span></td><td>Polar radius</td></tr>
-        <tr><td>Flattening (f)</td><td><span class="hl">1/298.257</span></td><td>f = (a−b)/a</td></tr>
+        <tr><td>Semi-major axis \(a\)</td><td><span class="hl">\(6{,}378{,}137 \text{ m}\)</span></td><td>Equatorial radius</td></tr>
+        <tr><td>Semi-minor axis \(b\)</td><td><span class="hl">\(6{,}356{,}752 \text{ m}\)</span></td><td>Polar radius</td></tr>
+        <tr><td>Flattening \(f\)</td><td><span class="hl">\(\dfrac{1}{298.257}\)</span></td><td>\(f = \dfrac{a-b}{a}\)</td></tr>
       </table>
       <p style="font-size:.85rem;color:var(--text2);margin-top:10px;">WGS84 is the global reference ellipsoid used by GPS. Established by IUGG (International Union of Geodesy and Geophysics).</p>
       <div class="tip-box"><strong>🧠 Memory:</strong> "6 million 378 — the Earth around the equator" → a = 6,378,137. Flattening = 1/298 ≈ tiny (Earth is nearly spherical).</div>
@@ -622,7 +640,7 @@ ul.styled li strong { color: var(--text); }
 
     <div class="card">
       <div class="card-title">Datum Transformation Workflow</div>
-      <div class="formula">Map Coordinates (A) → Geographic (lat/lon) → Datum Transform → Geographic (lat/lon) → Map Coordinates (B)</div>
+      <div class="formula">\[ \underbrace{(E_A, N_A)}_{\text{Projection A}} \xrightarrow{\text{inverse project}} \underbrace{(\varphi, \lambda)_{\text{Datum A}}}_{\text{Geographic}} \xrightarrow{\text{datum transform}} \underbrace{(\varphi, \lambda)_{\text{Datum B}}}_{\text{Geographic}} \xrightarrow{\text{forward project}} \underbrace{(E_B, N_B)}_{\text{Projection B}} \]</div>
       <p style="font-size:.88rem;color:var(--text2);">You cannot transform directly between two projected coordinate systems — you must go through geographic coordinates first, apply datum transformation, then re-project.</p>
     </div>
 
@@ -643,7 +661,7 @@ ul.styled li strong { color: var(--text); }
       <span class="hot-badge">🔥 HOT</span>
       <div class="card-title">Why 4 Satellites Are Needed for 3D Positioning</div>
       <p style="font-size:.88rem;color:var(--text2);margin-bottom:12px;">GPS positioning uses <strong style="color:var(--text)">pseudoranges</strong> — distance measurements that contain a receiver clock bias error.</p>
-      <div class="formula">4 unknowns: X, Y, Z (position) + Δt (clock bias) → need 4 equations = 4 satellites</div>
+      <div class="formula">\[ \underbrace{X,\; Y,\; Z}_{\text{position}} + \underbrace{\Delta t}_{\text{clock bias}} = 4 \text{ unknowns} \quad \Rightarrow \quad \text{need 4 satellites} \]</div>
       <table>
         <tr><th>Satellites</th><th>Solves For</th></tr>
         <tr><td>3 satellites</td><td>2D position (X, Y) only — clock error not solved</td></tr>
@@ -1172,11 +1190,11 @@ ul.styled li strong { color: var(--text); }
     <div class="ref-card">
       <h4>📐 Key Formulas</h4>
       <ul>
-        <li>Risk: <strong>R = H × Ex × V</strong></li>
-        <li>Geoid separation: <strong>N = h − H</strong></li>
-        <li>Flattening: <strong>f = (a−b)/a</strong></li>
-        <li>GPS unknowns: <strong>X, Y, Z + Δt = 4</strong></li>
-        <li>Orthometric H: <strong>H = h − N</strong></li>
+        <li>Risk: \( R = H \times Ex \times V \)</li>
+        <li>Geoid separation: \( N = h - H \)</li>
+        <li>Flattening: \( f = \dfrac{a-b}{a} \)</li>
+        <li>GPS unknowns: \( X, Y, Z, \Delta t = 4 \)</li>
+        <li>Orthometric H: \( H = h - N \)</li>
       </ul>
     </div>
     <div class="ref-card">
